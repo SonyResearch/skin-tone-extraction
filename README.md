@@ -6,7 +6,7 @@
 
 Install this library using `pip`:
 ```bash
-pip install git+https://github.com/TO/DO.git
+pip install git+https://github.com/SonyResearch/skin-tone-extraction.git
 ```
 
 ## Usage
