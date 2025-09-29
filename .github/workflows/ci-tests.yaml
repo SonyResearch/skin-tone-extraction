@@ -55,7 +55,7 @@ jobs:
 
       - name: Run tests and coverage
         run: |
-          poetry run coverage run --source=res_code/ -m pytest tests/ 
+          poetry run coverage run --source=skin_tone_extraction/ -m pytest tests/ 
           poetry run coverage report
           poetry run coverage xml -o coverage.xml
           COVERAGE_THRESHOLD=70

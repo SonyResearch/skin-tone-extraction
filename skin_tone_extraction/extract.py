@@ -1,10 +1,10 @@
 """Main entrypoint to extract skin tone from images."""
 
-from res_code.skin_tone.image import MaskedImage
-from res_code.skin_tone.methods.krishnapriya import KrishnapriyaMethod
-from res_code.skin_tone.methods.merler import MerlerMethod
-from res_code.skin_tone.methods.overall import OverallAverageMethod, OverallModeMethod
-from res_code.skin_tone.methods.thong import ThongMethod
+from skin_tone_extraction.image import MaskedImage
+from skin_tone_extraction.methods.krishnapriya import KrishnapriyaMethod
+from skin_tone_extraction.methods.merler import MerlerMethod
+from skin_tone_extraction.methods.overall import OverallAverageMethod, OverallModeMethod
+from skin_tone_extraction.methods.thong import ThongMethod
 
 METHODS = {
     "thong": ThongMethod,

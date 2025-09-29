@@ -5,7 +5,7 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from res_code.skin_tone.image_collection import MaskedImageCollection
+from skin_tone_extraction.image_collection import MaskedImageCollection
 
 
 def test_init_with_lists():
@@ -123,7 +123,7 @@ def test_slice():
     assert sliced_no_ids.image_ids is None
 
 
-@patch("res_code.skin_tone.image_collection.MaskedImage")
+@patch("skin_tone_extraction.image_collection.MaskedImage")
 def test_getitem_creates_masked_image(mock_masked_image):
     """Test that __getitem__ creates MaskedImage instances when needed."""
     mock_instance = Mock()
@@ -167,7 +167,7 @@ def test_getitem_out_of_range():
         collection[-1]
 
 
-@patch("res_code.skin_tone.image_collection.MaskedImage")
+@patch("skin_tone_extraction.image_collection.MaskedImage")
 def test_iteration(mock_masked_image):
     """Test iteration over the collection."""
     mock_instances = [Mock() for _ in range(3)]
@@ -191,7 +191,7 @@ def test_clear_cache():
     )
 
     # Access an item to populate cache
-    with patch("res_code.skin_tone.image_collection.MaskedImage") as mock:
+    with patch("skin_tone_extraction.image_collection.MaskedImage") as mock:
         mock.return_value = Mock()
         _ = collection[0]
         assert len(collection._loaded_images) == 1

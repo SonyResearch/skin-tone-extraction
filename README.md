@@ -1,6 +1,6 @@
-# PACKAGENAME
+# skin_tone_extraction
 
-`PACKAGENAME` is a Python package for automatic skin tone extraction from images using various different approaches. The package provides both a programmatic API and command-line interface for extracting skin tone from facial images with skin masks.
+`skin_tone_extraction` is a Python package for automatic skin tone extraction from images using various different approaches. The package provides both a programmatic API and command-line interface for extracting skin tone from facial images with skin masks.
 
 ## Installation
 
@@ -15,19 +15,19 @@ The easiest way to use the package is via its CLI. Point it to a list of images 
 
 ```bash
 # Extract from directories
-python -m res_code.skin_tone extract \
+python -m skin_tone_extraction extract \
   --images /path/to/images
   --masks /path/to/masks \
   --mask-value 255 # Which value in the mask corresponds to facial skin?
 
 # You can also use {image_id} as a placeholder for more complex scenarios
-python -m res_code.skin_tone extract \
+python -m skin_tone_extraction extract \
   --images "/data/images/{image_id}.jpg" \
   --masks "/data/images/mask_{image_id}.png" \
   --mask-value 1
 
 # If you want to better understand how a method works, turn on debugging mode
-python -m res_code.skin_tone extract \
+python -m skin_tone_extraction extract \
   --images /path/to/images \
   --masks /path/to/masks \
   --mask-value 255 \
@@ -49,7 +49,7 @@ The package supports several different methods for extraction:
 
 ```bash
 # You can also extract multiple methods at once
-python -m res_code.skin_tone extract \
+python -m skin_tone_extraction extract \
   --images /path/to/images \
   --masks /path/to/masks \
   --mask-value 255 \
@@ -76,7 +76,7 @@ Please note that we do not recommend usage of ITA (even in corrected form), as i
 #### Basic usage
 
 ```python
-from res_code.skin_tone import extract_skin_tone_from_paths
+from skin_tone_extraction import extract_skin_tone_from_paths
 
 # Extract skin tone from single image
 result = extract_skin_tone_from_paths(
@@ -93,8 +93,8 @@ print(result)
 #### Batch processing with collections
 
 ```python
-from res_code.skin_tone.image_collection import MaskedImageCollection
-from res_code.skin_tone.batch_extract import batch_extract_df
+from skin_tone_extraction.image_collection import MaskedImageCollection
+from skin_tone_extraction.batch_extract import batch_extract_df
 
 # Create collection from directories
 collection = MaskedImageCollection(
@@ -124,7 +124,7 @@ The package supports predefined dataset configurations for easier reuse and shar
 Create a `datasets.py` file in your working directory to define reusable dataset configurations:
 
 ```python
-from res_code.skin_tone import DatasetConfig
+from skin_tone_extraction import DatasetConfig
 
 class MyDataset(DatasetConfig):
     """My custom facial image dataset."""
@@ -153,16 +153,16 @@ class ComplexDataset(DatasetConfig):
 
 ```bash
 # Extract using a dataset configuration
-python -m res_code.skin_tone extract-dataset --dataset MyDataset
+python -m skin_tone_extraction extract-dataset --dataset MyDataset
 
 # Use multiple methods
-python -m res_code.skin_tone extract-dataset \
+python -m skin_tone_extraction extract-dataset \
     --dataset MyDataset \
     --method average \
     --method krishnapriya
 
 # Limit processing to first 100 images (useful when trying out extraction)
-python -m res_code.skin_tone extract-dataset \
+python -m skin_tone_extraction extract-dataset \
     --dataset ComplexDataset \
     --method average \
     --limit 100

@@ -3,9 +3,9 @@
 import numpy as np
 from skimage.color import rgb2lab
 
-from res_code.skin_tone.image import MaskedImage
-from res_code.skin_tone.metrics import get_corrected_ita, get_hue, get_ita
-from res_code.skin_tone.visualizer import Visualizer
+from skin_tone_extraction.image import MaskedImage
+from skin_tone_extraction.metrics import get_corrected_ita, get_hue, get_ita
+from skin_tone_extraction.visualizer import Visualizer
 
 
 def mode_hist(x: np.ndarray, bins: int | str = "sturges") -> float:

@@ -9,7 +9,7 @@ Conference on Applications of Computer Vision (pp. 429-438).
 import numpy as np
 from skimage.color import rgb2ycbcr
 
-from res_code.skin_tone.extraction import ExtractionMethod, ExtractionResult
+from skin_tone_extraction.extraction import ExtractionMethod, ExtractionResult
 
 
 class KrishnapriyaMethod(ExtractionMethod):

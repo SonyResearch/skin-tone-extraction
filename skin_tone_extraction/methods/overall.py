@@ -1,6 +1,6 @@
 """Simple skin tone extraction approach utilizing the whole skin mask."""
 
-from res_code.skin_tone.extraction import ExtractionMethod, ExtractionResult
+from skin_tone_extraction.extraction import ExtractionMethod, ExtractionResult
 
 
 class OverallAverageMethod(ExtractionMethod):

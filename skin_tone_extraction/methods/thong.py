@@ -14,9 +14,9 @@ from skimage.color import rgb2lab
 from skimage.filters import gaussian
 from sklearn import cluster
 
-from res_code.skin_tone.extraction import ExtractionMethod, ExtractionResult
-from res_code.skin_tone.helpers import calculate_mode, prepare_skin_tone_columns
-from res_code.skin_tone.metrics import get_hue
+from skin_tone_extraction.extraction import ExtractionMethod, ExtractionResult
+from skin_tone_extraction.helpers import calculate_mode, prepare_skin_tone_columns
+from skin_tone_extraction.metrics import get_hue
 
 
 class ThongMethod(ExtractionMethod):

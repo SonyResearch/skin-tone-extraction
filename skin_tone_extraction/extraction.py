@@ -6,13 +6,13 @@ from typing import Any, Dict
 
 import numpy as np
 
-from res_code.skin_tone.helpers import (
+from skin_tone_extraction.helpers import (
     calculate_average,
     calculate_mode,
     prepare_skin_tone_columns,
 )
-from res_code.skin_tone.image import MaskedImage
-from res_code.skin_tone.visualizer import Visualizer
+from skin_tone_extraction.image import MaskedImage
+from skin_tone_extraction.visualizer import Visualizer
 
 
 class ExtractionResult:

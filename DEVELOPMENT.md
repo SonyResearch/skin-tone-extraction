@@ -77,10 +77,10 @@ poetry run pytest -vs tests/
 
 [Coverage](https://coverage.readthedocs.io/en/7.4.4/) is used to measure the code
 coverage of the Pytest tests. To measure the coverage of all of the Pytest tests over
-the code in the `res_code` package, run:
+the code in the `skin_tone_extraction` package, run:
 
 ```shell
-poetry run coverage run --source=res_code/ -m pytest tests/
+poetry run coverage run --source=skin_tone_extraction/ -m pytest tests/
 ```
 
 To generate a human-readable coverage report in the terminal run:

@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from res_code.skin_tone.visualizer import Visualizer
+from skin_tone_extraction.visualizer import Visualizer
 
 
 def test_visualize_loaded_mask_basic():

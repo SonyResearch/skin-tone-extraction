@@ -5,11 +5,11 @@ import os
 import pytest
 from click.testing import CliRunner
 
-from res_code.skin_tone.__main__ import (
+from skin_tone_extraction.__main__ import (
     cli,
 )
-from res_code.skin_tone.dataset import DatasetConfig, get_dataset_config
-from res_code.skin_tone.image_collection import MaskedImageCollection
+from skin_tone_extraction.dataset import DatasetConfig, get_dataset_config
+from skin_tone_extraction.image_collection import MaskedImageCollection
 
 
 def create_dummy_files(dir_path, names):
@@ -40,7 +40,7 @@ def test_cli_pattern_mode(tmp_path):
     masks_pattern = str(mask_dir / "{image_id}_mask.png")
     runner = CliRunner()
     # Patch batch_extract_df to avoid actual processing
-    import res_code.skin_tone.__main__ as main_mod
+    import skin_tone_extraction.__main__ as main_mod
 
     class DummyDF:
         def insert(self, *a, **kw):
@@ -88,7 +88,7 @@ def test_get_dataset_config_success(tmp_path, monkeypatch):
     class DummyBase(DatasetConfig):
         pass
 
-    monkeypatch.setattr("res_code.skin_tone.dataset.DatasetConfig", DummyBase)
+    monkeypatch.setattr("skin_tone_extraction.dataset.DatasetConfig", DummyBase)
     # Should load and instantiate DummyConfig
     config = get_dataset_config("dummy", str(datasets_py))
     assert hasattr(config, "images")
@@ -123,7 +123,7 @@ def test_cli_extract_invalid_method(tmp_path):
     )
 
     # Patch batch_extract_df to avoid actual processing
-    import res_code.skin_tone.__main__ as main_mod
+    import skin_tone_extraction.__main__ as main_mod
 
     main_mod.batch_extract_df = lambda *a, **kw: []
 
@@ -150,7 +150,7 @@ def test_cli_extract_single_method(tmp_path):
     )
 
     # Mock batch_extract_df
-    import res_code.skin_tone.__main__ as main_mod
+    import skin_tone_extraction.__main__ as main_mod
 
     class DummyDF:
         def __init__(self):
@@ -197,7 +197,7 @@ def test_cli_extract_with_limit(tmp_path):
     collection = MaskedImageCollection(images=images, masks=masks, mask_value=1)
 
     # Mock batch_extract_df to track how many images are processed
-    import res_code.skin_tone.__main__ as main_mod
+    import skin_tone_extraction.__main__ as main_mod
 
     processed_count = 0
 

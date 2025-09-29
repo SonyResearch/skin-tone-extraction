@@ -10,8 +10,8 @@ from typing import Literal
 import numpy as np
 from skimage.filters import gaussian
 
-from res_code.skin_tone.extraction import ExtractionMethod, ExtractionResult
-from res_code.skin_tone.helpers import (
+from skin_tone_extraction.extraction import ExtractionMethod, ExtractionResult
+from skin_tone_extraction.helpers import (
     calculate_average,
     calculate_mode,
     prepare_skin_tone_columns,

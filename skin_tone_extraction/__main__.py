@@ -7,7 +7,7 @@ import click
 from rich.console import Console
 from rich.table import Table
 
-from res_code.skin_tone.dataset import get_dataset_config
+from skin_tone_extraction.dataset import get_dataset_config
 
 from .batch_extract import batch_extract_df
 from .extract import DEFAULT_METHOD, METHODS

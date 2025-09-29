@@ -5,7 +5,7 @@ import os
 import re
 from typing import Iterator, List, Optional, Tuple, Union
 
-from res_code.skin_tone.dataset import DatasetConfig
+from skin_tone_extraction.dataset import DatasetConfig
 
 from .image import MaskedImage
 

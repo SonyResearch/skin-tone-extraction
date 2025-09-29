@@ -7,20 +7,20 @@ import tempfile
 import numpy as np
 import pytest
 
-from res_code.skin_tone.batch_extract import batch_extract_df
-from res_code.skin_tone.extract import extract_skin_tone_from_paths
-from res_code.skin_tone.helpers import (
+from skin_tone_extraction.batch_extract import batch_extract_df
+from skin_tone_extraction.extract import extract_skin_tone_from_paths
+from skin_tone_extraction.helpers import (
     mode_hist,
     prepare_skin_tone_columns,
     visualize_mask,
 )
-from res_code.skin_tone.image_collection import MaskedImageCollection
-from res_code.skin_tone.methods.overall import OverallAverageMethod
-from res_code.skin_tone.methods.thong import ThongMethod
-from res_code.skin_tone.metrics import get_hue
-from res_code.skin_tone.visualizer import Visualizer
+from skin_tone_extraction.image_collection import MaskedImageCollection
+from skin_tone_extraction.methods.overall import OverallAverageMethod
+from skin_tone_extraction.methods.thong import ThongMethod
+from skin_tone_extraction.metrics import get_hue
+from skin_tone_extraction.visualizer import Visualizer
 
-ASSETS_DIR = os.path.join(os.path.dirname(__file__), "../assets")
+ASSETS_DIR = os.path.join(os.path.dirname(__file__), "./assets")
 IMG_PATH = os.path.abspath(os.path.join(ASSETS_DIR, "00000.png"))
 MASK_PATH = os.path.abspath(os.path.join(ASSETS_DIR, "00000_mask.png"))
 

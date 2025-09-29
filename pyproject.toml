@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "res_code"
+name = "skin_tone_extraction"
 version = "0.1.0"
 description = "This repository serves as a foundational template for research projects. Use this template when creating a new repository to leverage features like CI/CD, code style enforcement, and robust documentation."
 authors = ["jeroneandrews-sony", "athoag-sony", "jinruxue-sony"]
 readme = ["README.md", "DEVELOPMENT.md"]
-packages = [{include = "res_code"}, {include = "res_code/py.typed"}]
+packages = [{include = "skin_tone_extraction"}, {include = "skin_tone_extraction/py.typed"}]
 
 [[tool.poetry.source]]
 name = "pypi"
