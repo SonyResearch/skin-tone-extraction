@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "skin_tone_extraction"
 version = "0.1.0"
-description = "This repository serves as a foundational template for research projects. Use this template when creating a new repository to leverage features like CI/CD, code style enforcement, and robust documentation."
-authors = ["jeroneandrews-sony", "athoag-sony", "jinruxue-sony"]
+description = "A Python package for automatic skin tone extraction from images using various different approaches from / inspired by the literature."
+authors = ["jansim-sony"]
 readme = ["README.md", "DEVELOPMENT.md"]
 packages = [{include = "skin_tone_extraction"}, {include = "skin_tone_extraction/py.typed"}]
 
