@@ -41,5 +41,3 @@ node_modules/
 # Automatically built files for website
 docs/source/api/*.rst
 .Rproj.user
-
-*.png
