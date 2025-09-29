@@ -1,0 +1,105 @@
+[tool.poetry]
+name = "res_code"
+version = "0.1.0"
+description = "This repository serves as a foundational template for research projects. Use this template when creating a new repository to leverage features like CI/CD, code style enforcement, and robust documentation."
+authors = ["jeroneandrews-sony", "athoag-sony", "jinruxue-sony"]
+readme = ["README.md", "DEVELOPMENT.md"]
+packages = [{include = "res_code"}, {include = "res_code/py.typed"}]
+
+[[tool.poetry.source]]
+name = "pypi"
+priority = "primary"
+
+# Direct dependencies of the Python package
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.2.1"
+tqdm = "^4.66.2"
+matplotlib = "^3.8.3"
+numpy = "^1.26.4"
+scikit-image = "^0.25.0"
+scikit-learn = "^1.5.2"
+rich = "^14.1.0"
+
+# Secondary dependencies to run notebooks and interact with datasets
+[tool.poetry.group.secondary.dependencies]
+jupyter = "^1.1.1"
+ipykernel = "^6.29.3"
+matplotlib-inline = "^0.1.6"
+gdown = "^5.2.0"
+mlcroissant = "^1.0.21"
+pycocotools = "^2.0.10"
+
+# Development dependencies for linting, testing, and type checking
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.6.2"
+ruff = "^0.12.2"
+mypy = "^1.9.0"
+pytest = "^8.1.1"
+coverage = "^7.4.3"
+pytest-mock = "^3.12.0"
+black = {extras = ["jupyter"], version = "^24.3.0"}
+types-requests = "^2.31.0.20240406"
+pandas-stubs = "^2.2.1.240316"
+types-tqdm = "^4.67.0.20241221"
+matplotlib-stubs = "^0.2.0"
+types-pyyaml = "^6.0.12.20240311"
+microsoft-python-type-stubs = {git = "https://github.com/microsoft/python-type-stubs.git"}
+syrupy = "^4.9.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+indent-width = 4
+line-length = 88
+target-version = "py310"
+extend-include = ["*.ipynb"]
+extend-exclude = ["notebooks/internal/"]
+lint.select = ["E", "W", "F", "D", "I", "N", "Q"]
+lint.ignore = ["W291"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401"]
+"test_*.py" = ["D103"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+strict = true
+ignore_missing_imports = false
+mypy_path = "./stubs"
+exclude = "./tests"
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+exclude_also = [
+    "def __repr__",
+    "if self\\.debug",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "@(abc\\.)?abstractmethod",
+]
+ignore_errors = true
+
+[tool.pytest.ini_options]
+python_files = "test_*.py"
+python_functions = "test_*"
+testpaths = ["./tests"]

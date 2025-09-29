@@ -1,0 +1,63 @@
+# ---
+# PURPOSE: The purpose of pre-commit hooks is:
+# to catch and resolve issues during development rather than during PR merges.
+# Promote writing code with best practices in mind.
+# Reduce the need for back-and-forth during reviews by enforcing standards upfront.
+#
+# SETUP:
+# $ poetry run pre-commit install
+#
+# DISCLAIMER: This pre-commit configuration file is intended to enforce consistent
+# coding standards and best practices across the repository. Unauthorized modifications
+# to this file may disrupt automated workflows or lead to inconsistencies.
+#
+# If updates are necessary, consult the infrastructure team for review and approval to
+# ensure compatibility with existing workflows.
+#
+# Note: The `mypy` hook includes additional dependencies to support type checking for
+# commonly used libraries. If you encounter type-checking issues for a library not
+# covered by the existing dependencies, you may need to add its stubs or type
+# definitions. Examples include `types-requests`, `boto3-stubs`, or others specific to
+# your use case.
+# ---
+
+repos:
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        exclude: package.lock.json
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.5
+    hooks:
+      - id: ruff
+        name: Run ruff check
+        entry: ruff check
+        pass_filenames: true
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.9.0
+    hooks:
+      - id: mypy
+        name: Run mypy
+        entry: mypy
+        additional_dependencies:
+          [
+            pandas-stubs,
+            types-PyYAML,
+            types-requests,
+            types-tqdm,
+            matplotlib-stubs,
+          ]
+        args: [--strict]
+        exclude: ^tests/|^bin/
+        pass_filenames: true
+        language_version: python3.10
+  - repo: "https://github.com/psf/black"
+    rev: 24.3.0
+    hooks:
+      - id: black
+        name: Run black check
+        entry: black
+        args: ["--check"]
+        exclude: ^bin/
+        pass_filenames: true

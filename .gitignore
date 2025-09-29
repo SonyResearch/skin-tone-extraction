@@ -1,0 +1,45 @@
+.DS_Store
+.nfs
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+_ext
+__pycache__
+dist
+build
+_build
+wheels
+tests/cover
+tests/.coverage
+*.egg-info
+
+# Test state / virtualenvs
+.tox
+.coverage
+coverage.xml
+
+# Common virtualenv names
+.venv
+venv
+env2
+env3
+
+# Virtualenv support files and directories
+.python-version
+
+# Tools
+.idea
+.vscode
+.ruff_cache/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+node_modules/
+
+# Automatically built files for website
+docs/source/api/*.rst
+.Rproj.user
+
+*.png
