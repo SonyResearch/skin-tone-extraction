@@ -50,7 +50,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry config http-basic.nexus ${{ secrets.ETHICS_NEXUS_MACHINE_USER }} ${{ secrets.ETHICS_NEXUS_MACHINE_PASSWORD }}
           poetry install --no-interaction --no-root
 
       - name: Run all linters
