@@ -193,3 +193,17 @@ python -m pytest
 ### Formatting
 
 Ruff is used for linting and black for formatting. Formatting can be automatically checked / applied wherever possible via `black . && ruff check . --fix && ruff format .`.
+
+## Acknowledgements
+
+This package builts on template code by @jeroneandrews-sony, @athoag-sony and @jinruxue-sony.
+
+Some of the extraction methods in this package build on prior work, please cite these works appropriately if you use one of the methods. The documentation of a particular extraction class will reference its source / inspiration.
+
+Krishnapriya, K. S., Pangelinan, G., King, M. C., & Bowyer, K. W. (2022). Analysis of Manual and Automated Skin Tone Assignments. 429–438. https://openaccess.thecvf.com/content/WACV2022W/DVPB/html/Krishnapriya_Analysis_of_Manual_and_Automated_Skin_Tone_Assignments_WACVW_2022_paper.html
+Merler, M., Ratha, N., Feris, R. S., & Smith, J. R. (2019). Diversity in Faces (No. arXiv:1901.10436). arXiv. https://doi.org/10.48550/arXiv.1901.10436
+Thong, W., Joniak, P., & Xiang, A. (2023). Beyond Skin Tone: A Multidimensional Measure of Apparent Skin Color. 4903–4913. https://openaccess.thecvf.com/content/ICCV2023/html/Thong_Beyond_Skin_Tone_A_Multidimensional_Measure_of_Apparent_Skin_Color_ICCV_2023_paper.html
+
+## License
+
+The code in this repositroy is licensed under the [MIT license](./LICENSE).
